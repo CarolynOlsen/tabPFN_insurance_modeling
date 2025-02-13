@@ -11,11 +11,10 @@ TabPFN is a transformer model that uses in-context learning for tabular data pre
 ### Requirements
 - Python 3.12 (other versions supported - see TabPFN documentation)
 - CUDA-capable GPU recommended
-- `tabpfn-community` package - installation instructions at [TabPFN Community Repository](https://github.com/PriorLabs/tabpfn-community)
 
 ### Environment Setup
 
-This project uses Pipenv for dependency management. After installing TabPFN:
+This project uses Pipenv for dependency management. 
 
 1. Create and activate a Pipenv environment:
 ```sh
@@ -23,7 +22,10 @@ pipenv install
 pipenv shell
 ```
 
-2. Set up Jupyter kernel (optional):
+2. Install `tabpfn-community` package - installation instructions at [TabPFN Community Repository](https://github.com/PriorLabs/tabpfn-community)
+   - Keep in mind that when running a pip install in pipenv, you need to start the command `pipenv run pip install...`
+
+3. Set up Jupyter kernel (optional):
 ```sh
 python -m ipykernel install --user --name=tabpfn_env --display-name "Python (tabpfn_env)"
 ```
