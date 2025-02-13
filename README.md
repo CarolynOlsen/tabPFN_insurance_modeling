@@ -1,62 +1,52 @@
-# Insurance Modeling with TabPFN and LightGBM
+# Insurance Loss Prediction: TabPFN vs LightGBM
 
-This repository is used to test TabPFN (a transformer model with in-context learning) for insurance modeling and compare its performance to gradient boosted trees (LightGBM).
+This project explores using TabPFN (Transformer that solves small tabular classification Problems in a Second) for insurance loss prediction and compares its performance to LightGBM.
 
-## Create and Activate Pipenv Environment
+## What is TabPFN?
 
-I ran this with Python 13.12, which you'll see in the Pipfile requirements. TabPFN supports other versions, too. If you want to run using the package versions I used, make sure to install Python 13.12 before proceeding.
+TabPFN is a transformer model that uses in-context learning for tabular data prediction. Unlike traditional machine learning models that require iterative training, TabPFN comes pre-trained and learns patterns from data examples in a single forward pass, similar to how large language models process text. Developed by researchers at the University of Freiburg, it offers rapid inference while maintaining competitive performance with state-of-the-art AutoML systems.
 
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/CarolynOlsen/insurance_modeling.git
-    cd insurance_modeling
-    ```
+## Setup
 
-2. If you have multiple versions of Python installed, you may need to specify the Python version when creating the environment:
-    ```sh
-    pipenv --python /path/to/your/python3.12
-    ```
+### Requirements
+- Python 3.12 (other versions supported - see TabPFN documentation)
+- CUDA-capable GPU recommended
+- `tabpfn-community` package - installation instructions at [TabPFN Community Repository](https://github.com/PriorLabs/tabpfn-community)
 
-3. Install the dependencies using `pipenv`:
-    ```sh
-    pipenv install
-    ```
+### Environment Setup
 
-4. Activate the pipenv environment (optional, as `pipenv run` can be used to run commands within the environment):
-    ```sh
-    pipenv shell
-    ```
+This project uses Pipenv for dependency management. After installing TabPFN:
 
-5. Make the environment accessible to Jupyter notebook as kernel.
-    ```sh
-    pipenv run python -m ipykernel install --user --name=tabpfn_env --display-name "Python (tabpfn_env)"
-    ```
+1. Create and activate a Pipenv environment:
+```sh
+pipenv install
+pipenv shell
+```
 
-## Usage
+2. Set up Jupyter kernel (optional):
+```sh
+python -m ipykernel install --user --name=tabpfn_env --display-name "Python (tabpfn_env)"
+```
 
-### Jupyter Notebook
+## Implementation
 
-1. Launch Jupyter Notebook:
-    ```sh
-    pipenv run jupyter notebook
-    ```
-
-2. Open the [modeling.ipynb](http://_vscodecontentref_/1) notebook and run the cells to perform initial exploration and profiling of the insurance modeling dataset.
-
-### Running Scripts
-
-You can also run any Python scripts directly within the pipenv environment:
-    ```sh
-    pipenv run python your_script.py
-    ```
+The `modeling.ipynb` notebook demonstrates:
+- Data preprocessing for TabPFN
+- Model implementation using AutoTabPFN
+- Comparison with LightGBM baseline
+- Performance evaluation using insurance-specific metrics
 
 ## Project Structure
-
-- [data](http://_vscodecontentref_/2): Directory containing the dataset files.
-- [modeling.ipynb](http://_vscodecontentref_/3): Jupyter notebook for initial exploration and profiling of the dataset.
-- [Pipfile](http://_vscodecontentref_/4): Pipenv environment configuration file.
-- `requirements.txt`: List of required Python packages (for reference).
+```
+├── data/               # Dataset directory
+├── modeling.ipynb      # Primary modeling notebook
+├── Pipfile            # Environment configuration
+```
 
 ## License
+MIT License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+## Additional Resources
+For questions about TabPFN implementation or updates, please refer to the [TabPFN Repository](https://github.com/PriorLabs/TabPFN).
+
+Note: This implementation explores TabPFN's application in insurance modeling. Results may vary based on specific use cases and data characteristics.
