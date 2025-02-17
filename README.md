@@ -7,7 +7,9 @@ I compared a tuned LightGBM pure premium model to TabPFN models. For the TabPFN 
 - Pure premium a.k.a loss cost modeling, where we use a single model to predict policy loss. I wanted to try this because I thought this would be the toughest for TabPFN to compete against LightGBM on, because the target has a compound distribution. It's heavily zero-inflated, with a long right tail. With LightGBM we can handle that explicitly with a Tweedie distribution, but that isn't possible with TabPFN.
 - Separate frequency and severity models. Ok, so maybe trying to get TabPFN to understand a Tweedie distribution is a bit mean. What if we have it focus separately on frequency and severity? 
 
-Overall I was impressed with TabPFN's predictions. Both of the approaches with TabPFN were pretty comparable -- very similar RMSE to the LightGBM model, but worse Tweedie D2 score. On RMSE, the pure premium model slightly edged out the separate frequency and severity models. 
+I kept evaluation super light because this is a quick test of this new modeling approach, so I looked only at RMSE and D2 Tweedie Score.
+
+Overall I was impressed with TabPFN's predictions. Both of the approaches with TabPFN were pretty comparable -- very similar RMSE to the LightGBM model, but worse D2 Tweedie score. On RMSE, the pure premium model slightly edged out the separate frequency and severity models. 
 
 Usability findings:
 - Dependencies were a headache – I spent more time resolving conflicts than modeling
